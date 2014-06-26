@@ -1,0 +1,43 @@
+<!--
+    Author : Han-sik Choi
+    Blog   : http://hans.or.kr
+    Date   : 2014-06-18
+    Description : app의 최상위 파일로서 최초 로딩되는 index 파일
+-->
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Hans Angular Skeleton</title>
+
+    <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.css" />
+    <link rel="stylesheet" href="css/app.css">
+
+    <!-- IE6,7,8에서도 HTML5 element를 인식시켜주기 위한 코드 -->
+    <!--[if lt IE 9]>
+    <script src="./lib/html5shiv/html5shiv.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+<div id="master-wrap">
+    <ul class="nav nav-tabs">
+        <li ng-class="{active:hello}" ng-click="hello = true; filter=false; directive = false;service = false"><a ui-sref="hello">Binding</a></li>
+        <li ng-class="{active:filter}" ng-click="filter = true; hello=false; directive = false;service = false"><a ui-sref="filter">Filter</a></li>
+        <li ng-class="{active:directive}" ng-click="directive = true; hello=false; filter = false;service = false"><a ui-sref="directive">Directive</a></li>
+        <li ng-class="{active:service}" ng-click="directive = false; hello=false; filter = false; service = true"><a ui-sref="service">Service</a></li>
+    </ul>
+
+    <!-- View가 표시될 영역 -->
+    <div ui-view></div>
+</div>
+    <!--
+        requireJS를 사용하기 위한 부분으로,
+        requireJS는 data-main에 설정한 main.js 파일을 최초로 로드한다.
+     -->
+    <script src="lib/require/require.js" data-main="js/main.js"></script>
+</body>
+
+</html>
